@@ -1,10 +1,12 @@
 import './App.css'
 import Form from './Form'
+import CommentsFrom from './CommentsForm'
+import Comments from './Comments'
 function App() {
   return (
     <>
-    <h1>hello</h1>
-    <Form />
+   <Comments/>
+   {/* <CommentsFrom/> */}
     </>
   )
 }
