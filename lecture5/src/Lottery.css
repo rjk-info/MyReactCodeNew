@@ -1,4 +1,8 @@
 .ticket {
     border: 1px solid black;
     border-radius: 14px;
+    /* background: #7bd62b; */
+}
+h1 {
+    color:#cb1dcd ;
 }
