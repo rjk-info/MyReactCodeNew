@@ -1,50 +1,50 @@
 import { useState } from "react";
+import { useFormik } from 'formik';
+
+const validate = values => {
+    const errors = {};
+    if (!values.username) {
+        errors.username = 'username cannot be empty';
+    }
+    return errors;
+};
 
 export default function CommentsForm({ addNewComment }) {
 
-    let [formData, setFormData] = useState({
-        username: "",
-        remark: "",
-        rating: 5
-    });
-
-
-    let handleInputChange = (event) => {
-        setFormData((currData) => {
-            return { ...currData, [event.target.name]: event.target.value };
-        });
-    };
-
-    let handleSubmit = (event) => {
-       
-        console.log(formData);
-        addNewComment(formData);
-        setFormData({
+    const formik = useFormik({
+        initialValues: {
             username: "",
             remark: "",
             rating: 5
-        });
-    };
+        },
+        validate,
+        onSubmit: (values, { resetForm }) => {
+            addNewComment(values);
+            resetForm();
+        },
+    });
 
     return (
         <div className="comments-form">
             <h4>Give a comment!</h4>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={formik.handleSubmit}>
                 <label htmlFor="username">User Name</label>
                 <input
                     placeholder="username"
                     type="text"
-                    value={formData.username}
-                    onChange={handleInputChange}
+                    value={formik.values.username}
+                    onChange={formik.handleChange}
                     id="username"
                     name="username"
                 />
+                {formik.errors.username ? <div>{formik.errors.username}</div> : null}
+
                 <br /><br /><br />
 
                 <label htmlFor="remark">Text Area</label>
                 <textarea
-                    value={formData.remark}
-                    onChange={handleInputChange}
+                    value={formik.values.remark}
+                    onChange={formik.handleChange}
                     id="remark"
                     name="remark"
                 />
@@ -55,8 +55,8 @@ export default function CommentsForm({ addNewComment }) {
                     placeholder="rating"
                     type="number"
                     min={1} max={5}
-                    value={formData.rating}
-                    onChange={handleInputChange}
+                    value={formik.values.rating}
+                    onChange={formik.handleChange}
                     id="rating"
                     name="rating"
                 />
