@@ -1,20 +1,15 @@
-import React from 'react';
-import InfoBox from './InfoBox'; // Ensure this import is only included once
+// import React from 'react';
 import SearchBox from './SearchBox';
-import './App.css'; // Uncommenting to apply styles
+import InfoBox from './InfoBox'; // Importing InfoBox
+// import './App.css'; 
 
 function App() {
-    try {
-        return (
-            <div>
-                <InfoBox />
-                <SearchBox />
-            </div>
-        );
-    } catch (error) {
-        console.error("Error rendering App:", error);
-        return <div>Error occurred while rendering the application.</div>;
-    }
+   return (
+    <div>
+        <h1>Hello</h1>
+        <SearchBox />
+        <InfoBox />
+    </div>
+   )
 }
-
 export default App;
