@@ -1,0 +1,6 @@
+.SearchBox {
+    text-align: center;
+    background: #474248;
+    width: 100%; /* Added to ensure full width */
+    margin: 0 auto; /* Center the SearchBox */
+}
