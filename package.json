@@ -9,9 +9,12 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.0.13",
+    "postcss": "^8.5.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "vite": "^2.6.4"
+    "tailwindcss": "^4.0.13",
+    "vite": "^2.9.18"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.0"
